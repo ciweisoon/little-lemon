@@ -20,7 +20,7 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="relative inline-flex items-center justify-center p-2 text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-300"
+              className="relative inline-flex items-center justify-center p-2 text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-custom-yellow"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               onClick={handleMenu}
@@ -40,14 +40,14 @@ const Navbar = () => {
               <Image
                 className="h-10 w-auto"
                 src={Header_Logo}
-                alt="Your Company"
+                alt="Little Lemon Logo"
               />
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <Link href="/" className="border-b-4 border-yellow-300 text-black px-3 py-2 text-sm font-black" aria-current="page">Home</Link>
+                <Link href="/" className="border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black" aria-current="page">Home</Link>
                 <Link href="#about" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">About</Link>
                 <Link href="/menu" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">Menu</Link>
                 <Link href="/reservation" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">Reservation</Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`sm: ${isOpen ? "block" : "hidden"}`} id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          <Link href="/" className="border-b-4 border-yellow-300 text-black px-3 py-2 text-sm font-black block" aria-current="page">Home</Link>
+          <Link href="/" className="border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black block" aria-current="page">Home</Link>
           <Link href="#about" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">About</Link>
           <Link href="/menu" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">Menu</Link>
           <Link href="/reservation" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">Reservation</Link>
