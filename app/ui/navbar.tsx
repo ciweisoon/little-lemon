@@ -2,15 +2,47 @@
 import Image from "next/image";
 import Header_Logo from "@/public/restaurant/header-logo.png";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+const navigation = [
+  { name: 'Home', href: '/', current: true },
+  { name: 'About', href: '/#about', current: false },
+  { name: 'Menu', href: '/menu', current: false },
+  { name: 'Reservation', href: '/reservation', current: false },
+  { name: 'Login', href: '/login', current: false },
+]
 
 const Navbar = () => {
   const [ isOpen, setIsOpen ] = useState(false);
+  const [ currentNav, setCurrentNav ] = useState(navigation);
+  const pathname = usePathname();
 
   const handleMenu = () => {
     console.log("Open: ", isOpen);
     setIsOpen(!isOpen);
   }
+
+  const updateCurrentNavigation = (pathname: string) => {
+    const updatedNav = currentNav.map((link) => {
+      if (!link.current && link.href === pathname) {
+        return { ...link,  current: true}
+      }
+
+      if (link.current && link.href !== pathname) {
+        return { ...link, current: false}
+      }
+
+      return link;
+    });
+
+    setCurrentNav(updatedNav);
+  };
+
+  useEffect(() => {
+    // console.log(pathname);
+    updateCurrentNavigation(pathname)
+  }, [pathname]);
 
   return (
     <nav className="bg-white">
@@ -47,11 +79,22 @@ const Navbar = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <Link href="/" className="border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black" aria-current="page">Home</Link>
-                <Link href="#about" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">About</Link>
-                <Link href="/menu" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">Menu</Link>
-                <Link href="/reservation" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">Reservation</Link>
-                <Link href="/login" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium">Login</Link>
+                {
+                  currentNav.map((link) => {
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className={
+                          link.current ?
+                          "border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black" :
+                          "text-black hover:text-gray-400 px-3 py-2 text-sm font-medium"
+                        }
+                        aria-current={link.current}
+                      >{link.name}</Link>
+                    )
+                  })
+                }
               </div>
             </div>
           </div>
@@ -61,11 +104,22 @@ const Navbar = () => {
       {/* Mobile menu, show/hide based on menu state. */}
       <div className={`sm: ${isOpen ? "block" : "hidden"}`} id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          <Link href="/" className="border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black block" aria-current="page">Home</Link>
-          <Link href="#about" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">About</Link>
-          <Link href="/menu" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">Menu</Link>
-          <Link href="/reservation" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">Reservation</Link>
-          <Link href="/login" className="text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block">Login</Link>
+          {
+            currentNav.map((link) => {
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={
+                    link.current ?
+                      "border-b-4 border-custom-yellow text-black px-3 py-2 text-sm font-black block" :
+                      "text-black hover:text-gray-400 px-3 py-2 text-sm font-medium block"
+                    }
+                  aria-current={link.current}
+                >{link.name}</Link>
+              )
+            })
+          }
         </div>
       </div>
     </nav>
