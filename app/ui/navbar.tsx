@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import Header_Logo from "../../public/restaurant/header-logo.png";
+import Header_Logo from "@/public/restaurant/header-logo.png";
 import Link from "next/link";
 import { useState } from "react";
 

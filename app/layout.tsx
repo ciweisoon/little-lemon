@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { playfair_display } from "./ui/fonts";
-import "./ui/globals.css";
-import Navbar from "./ui/navbar";
+import { playfair_display } from "@/app/ui/fonts";
+import "@/app/ui/globals.css";
+import Navbar from "@/app/ui/navbar";
 
 export const metadata: Metadata = {
   title: "Little Lemon Restaurant",
