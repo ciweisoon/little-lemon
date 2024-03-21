@@ -72,66 +72,77 @@ const customers = [
 
 const reviews = [
     {
+      id: '52c08d73-2df6-43ac-9716-e70ad973953b',
       customer_id: customers[0].id,
       star: 5,
       review: 'Really enjoyed the atmosphere.',
       date: '2024-02-14'
     },
     {
+      id: '170d230c-0054-4b50-9bbf-e685459bd038',
       customer_id: customers[1].id,
       star: 5,
       review: 'The greek salad was excellent!',
       date: '2022-11-14',
     },
     {
+      id: '9c99c639-61d1-42f6-b78a-956d56ebb25a',
       customer_id: customers[4].id,
       star: 4,
       review: 'You have to try the Greek Salad!',
       date: '2022-10-29',
     },
     {
+      id: 'd814751e-7f0b-4780-b90c-36c5851fbefa',
       customer_id: customers[3].id,
       star: 5,
       review: 'Awesome place peaceful atmosphere with delicious food',
       date: '2024-01-14',
     },
     {
+      id: '6ed3bd44-f9a8-4911-830b-6a45f7807556',
       customer_id: customers[5].id,
       star: 3,
       review: 'The chef is nice.',
       date: '2023-08-05',
     },
     {
+      id: '9bd3dbbb-49e3-45d2-b8b5-3f67229daa78',
       customer_id: customers[7].id,
       star: 4,
       review: 'Nice service.',
       date: '2023-07-16',
     },
     {
+      id: 'e110be11-eae0-43f0-9d49-c3f6e279596f',
       customer_id: customers[6].id,
       star: 5,
       review: 'Prety decoration for the ocassion.',
       date: '2023-06-27',
     },
     {
+      id: '4576a663-6edd-43e9-84a5-0b7114cf0ac5',
       customer_id: customers[3].id,
       star: 3,
       review: 'The food is just normal, but the price is expensive.',
       date: '2023-06-09',
     },
     {
+      id: 'a995f7b9-7d6d-4762-b1e6-b3359bd394bd',
       customer_id: customers[4].id,
       star: 5,
       review: 'The pizza is so nice. Recommand!',
       date: '2023-06-17',
     },
     {
+      id: 'e0286853-23e0-42d0-ab5e-54ac9127dec2',
       customer_id: customers[5].id,
       star: 4,
       review: 'Nice environment.',
       date: '2023-06-07',
     },
     {
+      id: 'd194f29d-fd87-4a29-ba55-ee2514ec9eb8',
       customer_id: customers[1].id,
       star: 2,
       review: 'The seat near the toilet smells. Not recommanded.',
@@ -141,6 +152,7 @@ const reviews = [
 
 const reservations = [
     {
+        id: '139e44a0-33dc-43a5-bf23-fcad0edf47e8',
         firstname: 'Delba',
         lastname: 'Oliveira',
         guest: 2,
@@ -153,6 +165,7 @@ const reservations = [
         date: '2023-04-01',
     },
     {
+        id: '316940f2-904c-49bd-9438-d39022167965',
         firstname: 'Robinson',
         lastname: 'Lee',
         guest: 2,
